@@ -58,7 +58,7 @@ const UpgradePhoenixHeight = -26
 const UpgradeWaffleHeight = -27
 
 // ??????
-const UpgradeTuktukHeight = 999999999999999
+const UpgradeTuktukHeight = 360
 
 // FIP-0081: for the power actor state for pledge calculations.
 // UpgradeTuktukPowerRampDurationEpochs ends up in the power actor state after
@@ -112,7 +112,7 @@ var F3ManifestServerID = MustParseID("12D3KooWJr9jy4ngtJNR7JC1xgLFra3DjEtyxskRYW
 // The initial F3 power table CID.
 var F3InitialPowerTableCID cid.Cid = cid.Undef
 
-const F3BootstrapEpoch abi.ChainEpoch = 1000
+const F3BootstrapEpoch abi.ChainEpoch = 480
 
 // F3Consensus set whether F3 should checkpoint tipsets finalized by F3. This
 // flag has no effect if F3 is not enabled.
