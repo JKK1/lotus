@@ -2,7 +2,7 @@
 
 # Node and Miner v1.30.0-rc2 / 2024-10-14
 
-This is the second release candidate of the upcoming MANDATORY Lotus v1.30.0 release, which will deliver the Filecoin network version 24, codenamed Tuk Tuk 🛺. This release candidate sets the calibration network upgrade `epoch 207879`, which corresponds to `2024-10-23T13:30:00Z`. F3 is set to be automatically activated one day later at epoch `2081674`, which corresponds to `2024-10-24T13:30:00Z`
+This is the second release candidate of the upcoming MANDATORY Lotus v1.30.0 release, which will deliver the Filecoin network version 24, codenamed Tuk Tuk 🛺. This release candidate sets the calibration network upgrade to `epoch 207879`, which corresponds to `2024-10-23T13:30:00Z`. F3 is set to be automatically activated one day later at epoch `2081674`, which corresponds to `2024-10-24T13:30:00Z`.
 
 > [!NOTE]
 > 1. This release candidate does NOT set the mainnet network upgrade epoch.  It will be added in the final release (expected October 30th).
