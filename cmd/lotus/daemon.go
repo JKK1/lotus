@@ -180,6 +180,14 @@ var DaemonCmd = &cli.Command{
 
 		interactive := cctx.Bool("interactive")
 
+		// Log a warning if the --api flag overrides LOTUS_API_LISTENADDRESS environment variable
+		if cctx.IsSet("api") {
+			envApiAddr := os.Getenv("LOTUS_API_LISTENADDRESS")
+			if envApiAddr != "" && envApiAddr != "/ip4/127.0.0.1/tcp/"+cctx.String("api") {
+				log.Warnf("--api flag (%s) overrides LOTUS_API_LISTENADDRESS environment variable (%s)", cctx.String("api"), envApiAddr)
+			}
+		}
+
 		if cctx.Bool("manage-fdlimit") {
 			if _, _, err := ulimit.ManageFdLimit(); err != nil {
 				log.Errorf("setting file descriptor limit: %s", err)
