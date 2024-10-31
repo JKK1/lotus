@@ -192,7 +192,7 @@ type FullNodeMethods struct {
 
 	EthGetBlockByHash func(p0 context.Context, p1 ethtypes.EthHash, p2 bool) (ethtypes.EthBlock, error) `perm:"read"`
 
-	EthGetBlockByNumber func(p0 context.Context, p1 string, p2 bool) (*ethtypes.EthBlock, error) `perm:"read"`
+	EthGetBlockByNumber func(p0 context.Context, p1 string, p2 bool) (ethtypes.EthBlock, error) `perm:"read"`
 
 	EthGetBlockReceipts func(p0 context.Context, p1 ethtypes.EthBlockNumberOrHash) ([]*EthTxReceipt, error) `perm:"read"`
 
@@ -275,6 +275,8 @@ type FullNodeMethods struct {
 	F3GetProgress func(p0 context.Context) (gpbft.Instant, error) `perm:"read"`
 
 	F3IsRunning func(p0 context.Context) (bool, error) `perm:"read"`
+
+	F3ListParticipants func(p0 context.Context) ([]F3Participant, error) `perm:"read"`
 
 	F3Participate func(p0 context.Context, p1 F3ParticipationTicket) (F3ParticipationLease, error) `perm:"sign"`
 
@@ -656,7 +658,7 @@ type GatewayMethods struct {
 
 	EthGetBlockByHash func(p0 context.Context, p1 ethtypes.EthHash, p2 bool) (ethtypes.EthBlock, error) ``
 
-	EthGetBlockByNumber func(p0 context.Context, p1 string, p2 bool) (*ethtypes.EthBlock, error) ``
+	EthGetBlockByNumber func(p0 context.Context, p1 string, p2 bool) (ethtypes.EthBlock, error) ``
 
 	EthGetBlockReceipts func(p0 context.Context, p1 ethtypes.EthBlockNumberOrHash) ([]*EthTxReceipt, error) ``
 
@@ -1770,15 +1772,15 @@ func (s *FullNodeStub) EthGetBlockByHash(p0 context.Context, p1 ethtypes.EthHash
 	return *new(ethtypes.EthBlock), ErrNotSupported
 }
 
-func (s *FullNodeStruct) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (*ethtypes.EthBlock, error) {
+func (s *FullNodeStruct) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (ethtypes.EthBlock, error) {
 	if s.Internal.EthGetBlockByNumber == nil {
-		return nil, ErrNotSupported
+		return *new(ethtypes.EthBlock), ErrNotSupported
 	}
 	return s.Internal.EthGetBlockByNumber(p0, p1, p2)
 }
 
-func (s *FullNodeStub) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (*ethtypes.EthBlock, error) {
-	return nil, ErrNotSupported
+func (s *FullNodeStub) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (ethtypes.EthBlock, error) {
+	return *new(ethtypes.EthBlock), ErrNotSupported
 }
 
 func (s *FullNodeStruct) EthGetBlockReceipts(p0 context.Context, p1 ethtypes.EthBlockNumberOrHash) ([]*EthTxReceipt, error) {
@@ -2230,6 +2232,17 @@ func (s *FullNodeStruct) F3IsRunning(p0 context.Context) (bool, error) {
 
 func (s *FullNodeStub) F3IsRunning(p0 context.Context) (bool, error) {
 	return false, ErrNotSupported
+}
+
+func (s *FullNodeStruct) F3ListParticipants(p0 context.Context) ([]F3Participant, error) {
+	if s.Internal.F3ListParticipants == nil {
+		return *new([]F3Participant), ErrNotSupported
+	}
+	return s.Internal.F3ListParticipants(p0)
+}
+
+func (s *FullNodeStub) F3ListParticipants(p0 context.Context) ([]F3Participant, error) {
+	return *new([]F3Participant), ErrNotSupported
 }
 
 func (s *FullNodeStruct) F3Participate(p0 context.Context, p1 F3ParticipationTicket) (F3ParticipationLease, error) {
@@ -4256,15 +4269,15 @@ func (s *GatewayStub) EthGetBlockByHash(p0 context.Context, p1 ethtypes.EthHash,
 	return *new(ethtypes.EthBlock), ErrNotSupported
 }
 
-func (s *GatewayStruct) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (*ethtypes.EthBlock, error) {
+func (s *GatewayStruct) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (ethtypes.EthBlock, error) {
 	if s.Internal.EthGetBlockByNumber == nil {
-		return nil, ErrNotSupported
+		return *new(ethtypes.EthBlock), ErrNotSupported
 	}
 	return s.Internal.EthGetBlockByNumber(p0, p1, p2)
 }
 
-func (s *GatewayStub) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (*ethtypes.EthBlock, error) {
-	return nil, ErrNotSupported
+func (s *GatewayStub) EthGetBlockByNumber(p0 context.Context, p1 string, p2 bool) (ethtypes.EthBlock, error) {
+	return *new(ethtypes.EthBlock), ErrNotSupported
 }
 
 func (s *GatewayStruct) EthGetBlockReceipts(p0 context.Context, p1 ethtypes.EthBlockNumberOrHash) ([]*EthTxReceipt, error) {

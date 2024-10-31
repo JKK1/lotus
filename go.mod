@@ -23,6 +23,7 @@ require (
 	github.com/alecthomas/jsonschema v0.0.0-20200530073317-71f438968921
 	github.com/cheggaaa/pb/v3 v3.1.5
 	github.com/chzyer/readline v1.5.1
+	github.com/consensys/gnark-crypto v0.12.1
 	github.com/containerd/cgroups v1.1.0
 	github.com/coreos/go-systemd/v22 v22.5.0
 	github.com/detailyang/go-fallocate v0.0.0-20180908115635-432fa640bd2e
@@ -43,7 +44,7 @@ require (
 	github.com/filecoin-project/go-cbor-util v0.0.1
 	github.com/filecoin-project/go-commp-utils/v2 v2.1.0
 	github.com/filecoin-project/go-crypto v0.1.0
-	github.com/filecoin-project/go-f3 v0.7.0
+	github.com/filecoin-project/go-f3 v0.7.1
 	github.com/filecoin-project/go-fil-commcid v0.2.0
 	github.com/filecoin-project/go-hamt-ipld/v3 v3.4.0
 	github.com/filecoin-project/go-jsonrpc v0.6.0
@@ -132,7 +133,7 @@ require (
 	github.com/sirupsen/logrus v1.9.2
 	github.com/stretchr/testify v1.9.0
 	github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
-	github.com/triplewz/poseidon v0.0.1
+	github.com/triplewz/poseidon v0.0.2-0.20240407130934-5265fab9d889
 	github.com/urfave/cli/v2 v2.25.5
 	github.com/whyrusleeping/bencher v0.0.0-20190829221104-bb6607aa8bba
 	github.com/whyrusleeping/cbor-gen v0.1.2
@@ -183,7 +184,6 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cilium/ebpf v0.9.1 // indirect
 	github.com/consensys/bavard v0.1.13 // indirect
-	github.com/consensys/gnark-crypto v0.12.1 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.4 // indirect
 	github.com/cskr/pubsub v1.0.2 // indirect
 	github.com/daaku/go.zipexe v1.0.2 // indirect
